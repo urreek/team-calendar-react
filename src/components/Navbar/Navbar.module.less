@@ -1,6 +1,7 @@
 
 .Navbar {
-    box-shadow: 0 0px 4px 0 rgba(255, 255, 255, 0.2);
+    background-color: #186da100;
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 64px;
     position: fixed;
@@ -12,8 +13,13 @@
     padding: 0 24px 0 24px;
     box-sizing: border-box;
     z-index: 90;
+    transition: background-color 0.3s linear;
 }
 
 .Navbar__left {
     display: flex;
+}
+
+.Fade {
+    background-color: #186da1FF;
 }
