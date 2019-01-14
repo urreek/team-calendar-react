@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.less';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import Home from './containers/Home/Home';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -17,6 +18,7 @@ class App extends Component {
                         <main>
                             <Route exact path="/" component={Home} />
                         </main>
+                        <Footer />
                     </div>
                 </Router>
             </React.Fragment>
