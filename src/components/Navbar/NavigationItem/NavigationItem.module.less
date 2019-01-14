@@ -1,0 +1,48 @@
+.NavigationItem {
+    position: relative;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    padding: 24px;
+    text-shadow: rgb(117, 250, 255) 0px 0px 2px;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 30%;
+        height: 2px;
+        bottom: 0;
+        left: 35%;
+        visibility: hidden;
+        background-color: rgb(255, 117, 117);
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover {
+        color: white;
+        text-shadow: rgb(0, 242, 250) 0px 0px 2px;
+        &:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+}
+
+.active > .NavigationItem {
+    color: white;
+    &:before {
+        width: 100%;
+        left: 0;
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+}
+
+a:not(.active) > .NavigationItem{
+    color: rgb(214, 214, 214);
+}
