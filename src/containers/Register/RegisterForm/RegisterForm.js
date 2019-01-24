@@ -105,11 +105,10 @@ class RegisterForm extends React.Component {
             } 
             else if(response.status === 409){
                 console.log("Email is already used.");
-
                 let errors = {
                     ...this.state.errors,
+                    email: "Email is already used."
                 }
-                errors.email = "Email is already used.";
                 this.setState({errors});
             }
             else {
