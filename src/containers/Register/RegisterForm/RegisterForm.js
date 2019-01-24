@@ -129,7 +129,6 @@ class RegisterForm extends React.Component {
     render() {
         return (
             <div className={styles.RegisterForm}>
-                <h2>Register Form</h2>
                 <form noValidate>
                     <TextField 
                         label="First Name"
