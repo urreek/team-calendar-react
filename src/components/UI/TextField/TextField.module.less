@@ -1,0 +1,37 @@
+@import '../../../less/colors.less';
+
+.TextField {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:focus-within {
+        .Label {
+            transform: translate(0, 12px) scale(0.75);
+            color: black;
+        }
+    }
+}
+
+.Label {
+    position: relative;
+    transform-origin: top left;
+    top: 0;
+    left: 0;
+    transform: translate(0, 34px) scale(1);
+    transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    color: rgba(0, 0, 0, 0.42);
+}
+
+.Filled {
+    .Label {
+        transform: translate(0, 12px) scale(0.75);
+        color: rgba(0, 0, 0, 0.42);
+    }
+}
+
+.Error {
+    color: @error;
+    font-size: 0.75rem;
+    min-height: 1em;
+}
