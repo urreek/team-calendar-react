@@ -1,0 +1,40 @@
+@import '../../../less/colors.less';
+@import '../../../less//shadows.less';
+
+.button {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    margin-top: 8px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    background-color: #e0e0e0;
+    box-shadow: @button-shadow;
+    line-height: 1.75;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover {
+        box-shadow: @button-shadow-hover;
+    }
+
+    &:active {
+        box-shadow: @button-shadow-hover;
+    }
+}
+
+
+.primary {
+    color: white;
+    background-color: @primary;
+
+    &:hover {
+        background-color: @primary-light;
+    }
+}
