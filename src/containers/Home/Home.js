@@ -1,8 +1,10 @@
 import React from 'react';
+import Auth from '../../services/Auth/Auth';
 
 class Home extends React.Component {
 
     render(){
+        Auth.login();
         return (
             <div>
                 <h1 style={{color: "white"}}> Team Calendar </h1>

@@ -1,8 +1,7 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
 import styles from './Navbar.module.less';
-import LeftNavigationItems from './LeftNavigationItems/LeftNavigationItems';
-import RightNavigationItems from './RightNavigationItems/RightNavigationItems';
+import NavigationItem from './NavigationItem/NavigationItem';
 
 class Navbar extends React.Component {
 
@@ -24,14 +23,28 @@ class Navbar extends React.Component {
         if(!this.state.isTransparent){
             style = styles.Fade;        
         }
+
         return (
             <nav className={`${styles.Navbar} ${style}`}>
                 <div className={styles.Navbar__left}>
                     <Logo />
-                    <LeftNavigationItems />
+                    <ul className={styles.LeftNavigationItems}>
+                        <NavigationItem link="/"> Home </NavigationItem>
+                        <NavigationItem link="/about"> About </NavigationItem>
+                        <NavigationItem link="/contact"> Contact </NavigationItem>
+                    </ul>
                 </div>
                 <div>
-                    <RightNavigationItems />
+                    <ul className={styles.RightNavigationItems}>
+                        {this.props.user ? (
+                            <NavigationItem link="/profile"> {this.props.user.sub} </NavigationItem>
+                        ) : (
+                            <React.Fragment>
+                                <NavigationItem link="/register"> Register </NavigationItem>
+                                <NavigationItem link="/login"> Login </NavigationItem>
+                            </React.Fragment>
+                        )}
+                    </ul>
                 </div>
             </nav>
         );

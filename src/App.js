@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
-import './App.less';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './containers/Home/Home';
 import Register from './containers/Register/Register';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from './containers/Login/Login';
+import AuthContext from './contexts/auth-context';
+import Auth from './services/Auth/Auth';
+
+import './App.less';
 
 class App extends Component {
+    
+    state = {
+        user: Auth.getUser(),
+    }
+
+    setAuth = (user) => {
+        this.setState({user});
+    }
+    
     render() {
         return (
             <React.Fragment>
                 <Router>
-                    <div>
+                    <AuthContext.Provider value={{isAuth: this.state.isAuth, setAuth: this.setAuth}}>
                         <Header>
-                            <Navbar/>
+                            <Navbar user={this.state.user}/>
                         </Header>
-                        <main>
+                        <main className="container">
                             <Route exact path="/" component={Home} />
                             <Route exact path="/register" component={Register} />
+                            <Route exact path="/login" component={Login} />
                         </main>
                         <Footer />
-                    </div>
+                    </AuthContext.Provider>
                 </Router>
             </React.Fragment>
         );

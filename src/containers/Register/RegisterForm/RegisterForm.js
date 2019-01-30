@@ -10,13 +10,13 @@ class RegisterForm extends React.Component {
         lastName: "",
         email: "",
         password: "",
-        comfirmPassword: "",
+        confirmPassword: "",
         errors: {
             firstName: "",
             lastName: "",
             email: "",
             password: "",
-            comfirmPassword: ""
+            confirmPassword: ""
         },
         loading: false
     }
@@ -33,7 +33,7 @@ class RegisterForm extends React.Component {
         }
     }
 
-    validateInput(){
+    validateInput(input , rules){
         let errors = {}
 
         if(!this.state.firstName){
@@ -68,12 +68,12 @@ class RegisterForm extends React.Component {
             errors.password = "password needs atleast 1 digit."
         }
 
-        if(!this.state.comfirmPassword){
-            errors.comfirmPassword = "password is required."
+        if(!this.state.confirmPassword){
+            errors.confirmPassword = "password is required."
         }
 
-        if(this.state.comfirmPassword && this.state.comfirmPassword !== this.state.password){
-            errors.comfirmPassword = "does not match the password."
+        if(this.state.confirmPassword && this.state.confirmPassword !== this.state.password){
+            errors.confirmPassword = "does not match the password."
         }
 
         this.setState({errors: errors});
@@ -128,6 +128,7 @@ class RegisterForm extends React.Component {
     render() {
         return (
             <div className={styles.RegisterForm}>
+                <h1> Register </h1>
                 <form noValidate>
                     <TextField 
                         label="First Name"
@@ -164,12 +165,12 @@ class RegisterForm extends React.Component {
                         onChange={(e) => this.inputChangedHandler(e)}/>
                     <TextField
                         type="password"
-                        label="Comfirm Password"
-                        name="comfirmPassword"
+                        label="Confirm Password"
+                        name="confirmPassword"
                         required
-                        value={this.state.comfirmPassword}
-                        error={this.state.errors.comfirmPassword ? true : false}
-                        helperText={this.state.errors.comfirmPassword}
+                        value={this.state.confirmPassword}
+                        error={this.state.errors.confirmPassword ? true : false}
+                        helperText={this.state.errors.confirmPassword}
                         onChange={(e) => this.inputChangedHandler(e)}/>
                     <Button color="primary" onClick={this.handleSubmit}> Register </Button>
                 </form>
