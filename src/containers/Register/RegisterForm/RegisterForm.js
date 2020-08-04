@@ -172,7 +172,8 @@ class RegisterForm extends React.Component {
                         error={this.state.errors.confirmPassword ? true : false}
                         helperText={this.state.errors.confirmPassword}
                         onChange={(e) => this.inputChangedHandler(e)}/>
-                    <Button color="primary" onClick={this.handleSubmit}> Register </Button>
+                    <Button color="primary" variant="outlined" onClick={this.handleSubmit}> Register </Button>
+                    <Button color="secondary" > Login </Button>
                 </form>
             </div>
         );

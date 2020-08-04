@@ -11,8 +11,14 @@ const button = ( props ) => {
         case 'secondary':
             className += " " + styles.secondary;
             break;
-        default:
-            className += " " + styles.primary;
+    }
+
+    switch(props.variant) {
+        case 'contained':
+            className += " " + styles.contained;
+            break;
+        case 'outlined':
+            className += " " + styles.outlined;
     }
 
     return (

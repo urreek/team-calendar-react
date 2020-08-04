@@ -109,7 +109,8 @@ class LoginForm extends React.Component {
                     error={this.state.errors.password ? true : false}
                     helperText={this.state.errors.password}
                     onChange={(e) => this.inputChangedHandler(e)}/>
-                <Button color="primary" onClick={this.handleSubmit}> Login </Button>
+                <Button color="primary" variant="outlined" onClick={this.handleSubmit}> Login </Button>
+                <Button color="secondary" > Register </Button>
             </form>
         </div>
         );

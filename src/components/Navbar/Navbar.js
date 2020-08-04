@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import styles from './Navbar.module.less';
 import NavigationItem from './NavigationItem/NavigationItem';
+import Button from '../UI/Button/Button';
 
 class Navbar extends React.Component {
 
